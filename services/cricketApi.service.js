@@ -1,38 +1,64 @@
 import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-if (!process.env.ATD_API_KEY) {
-  throw new Error(
-    "ATD_API_KEY is required. Please set it in your .env file as: ATD_API_KEY=your_api_key_here"
-  );
-}
+import ApiKeyManager from "../utils/apiKeyManager.js";
+import apiKeys from "../config/apiKeys.js";
 
 const baseURL = "https://Cricbuzz-Official-Cricket-API.proxy-production.allthingsdev.co";
-const apihubHost = process.env.ATD_API_HOST || "Cricbuzz-Official-Cricket-API.allthingsdev.co";
+const apiKeyManager = new ApiKeyManager(apiKeys);
 
-const cricketApi = axios.create({
-  baseURL: baseURL,
-  headers: {
-    "x-apihub-key": process.env.ATD_API_KEY,
-    "x-apihub-host": apihubHost,
-    "x-apihub-endpoint": "ac951751-d311-4d23-8f18-353e75432353"
+class CricketApiService {
+  constructor() {
+    this.baseURL = baseURL;
+    this.apiKeyManager = apiKeyManager;
   }
-});
 
-cricketApi.interceptors.request.use(
-  (config) => {
-    config.headers = config.headers || {};
-
-    config.headers["x-apihub-key"] = process.env.ATD_API_KEY;
-    config.headers["x-apihub-host"] = apihubHost;
-
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
+  async request({ url, method = "get", data = null, customHeaders = {} }) {
+    let lastError;
+    for (let i = 0; i < apiKeys.length; i++) {
+      try {
+        const keyObj = this.apiKeyManager.getNextKey();
+        const headers = {
+          "x-apihub-key": keyObj.key,
+          "x-apihub-host": keyObj.host,
+          "x-apihub-endpoint": keyObj.endpoint,
+          ...customHeaders
+        };
+        const response = await axios({
+          url: this.baseURL + url,
+          method,
+          data,
+          headers
+        });
+        return response;
+      } catch (err) {
+        lastError = err;
+        if (err.response && err.response.status === 429) continue;
+        break;
+      }
+    }
+    throw lastError;
   }
-);
 
-export default cricketApi;
+  async getHome() {
+    return this.request({ url: "/home" });
+  }
+  
+  async getMatchLive(){
+    return this.request({url:"/matches/live"})
+  }
+
+  async getMatchInfo(matchId) {
+    return this.request({ url: `/match/${matchId}` });
+  }
+
+  async getScoreCard(matchId) {
+    return this.request({ url: `/mcenter/v1/${matchId}/scard` });
+  }
+
+  async getCommentary(matchId) {
+    return this.request({ url: `/mcenter/v1/${matchId}/comm` });
+  }
+
+}
+
+const cricketApiService = new CricketApiService();
+export default cricketApiService;

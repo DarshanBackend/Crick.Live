@@ -1,0 +1,126 @@
+{
+  "matchid": 132791,
+  "seriesid": 10763,
+  "seriesname": "Super Smash 2025-26",
+  "matchdesc": "6th Match",
+  "matchformat": "T20",
+  "startdate": 1767151500000,
+  "enddate": 1767162300000,
+  "state": "Innings Break",
+  "status": "Innings Break-Northern Knights opt to bowl",
+  "team1": {
+    "teamid": 294,
+    "teamname": "Northern Knights",
+    "teamsname": "NK",
+    "isfullmember": false,
+    "isassociated": false,
+    "isleagueteam": false,
+    "iswomenteam": false,
+    "isheader": false,
+    "isactive": false,
+    "teampriority": "",
+    "isvideopresent": false,
+    "imageid": 0,
+    "countryname": "",
+    "belongsto": ""
+  },
+  "team2": {
+    "teamid": 314,
+    "teamname": "Wellington", 
+    "teamsname": "WEL",
+    "isfullmember": false,
+    "isassociated": false,
+    "isleagueteam": false,
+    "iswomenteam": false,
+    "isheader": false,
+    "isactive": false,
+    "teampriority": "",
+    "isvideopresent": false,
+    "imageid": 0,
+    "countryname": "",
+    "belongsto": ""
+  },
+  "umpire1": {
+    "id": 0,
+    "name": "",
+    "country": ""
+  },
+  "umpire2": {
+    "id": 0,
+    "name": "",
+    "country": ""
+  },
+  "umpire3": {
+    "id": 0,
+    "name": "",
+    "country": ""
+  },
+  "referee": {
+    "id": 0,
+    "name": "",
+    "country": ""
+  },
+  "venueinfo": {
+    "id": 393,
+    "ground": "Bay Oval",
+    "city": "Mount Maunganui",
+    "country": "New Zealand",
+    "timezone": "+13:00",
+    "established": 0,
+    "capacity": "",
+    "knownas": "",
+    "ends": "",
+    "hometeam": "",
+    "floodlights": false,
+    "curator": "",
+    "profile": "",
+    "imageurl": "",
+    "groundlength": 0,
+    "groundwidth": 0,
+    "othersports": "",
+    "imageid": 0,
+    "latitude": "",
+    "longitude": ""
+  },
+  "currbatteamid": 0,
+  "ismatchnotcovered": false,
+  "appindex": {
+    "seotitle": "Cricket match facts NK vs WEL 6th Match,Super Smash 2025-26 | Cricbuzz.com",
+    "weburl": "http://www.cricbuzz.com/cricket-match-facts/132791/nk-vs-wel-6th-match-super-smash-2025-26"
+  },
+  "istournament": true,
+  "tossstatus": "Northern Knights opt to bowl",
+  "seriesstartdt": 1766620800000,
+  "seriesenddt": 1769904000000,
+  "istimeannounced": false,
+  "statetitle": "",
+  "replacematchid": 0,
+  "livestreamenabled": false,
+  "isfantasyenabled": false,
+  "broadcastinfo": [
+    {
+      "country": "IN",
+      "broadcaster": [
+        {
+          "broadcasttype": "Streaming",
+          "value": "SonyLIV"
+        },
+        {
+          "broadcasttype": "TV",
+          "value": "Sony Sports Network"
+        }
+      ]
+    }
+  ],
+  "daynight": false,
+  "matchtype": "league",
+  "seriestype": "",
+  "shortstatus": "Innings Break",
+  "boundarytrackervalues": {
+    "boundarytrackervalue": []
+  },
+  "matchimageid": 808420,
+  "islivestreamenabled": false,
+  "isfantasyhandbookenabled": false,
+  "isforecastenabled": false
+}

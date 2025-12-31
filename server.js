@@ -9,8 +9,8 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-app.use("/api/cricket", cricketRoutes);
+app.use("/api/v1", cricketRoutes);
 
 app.listen(process.env.PORT, () =>
-  console.log(`🚀 Server running on ${process.env.PORT}`)
+  console.log(` Server running on ${process.env.PORT}`)
 );

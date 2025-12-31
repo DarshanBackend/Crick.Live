@@ -1,0 +1,1002 @@
+{
+  "typeMatches": [
+    {
+      "matchType": "League",
+      "seriesMatches": [
+        {
+          "seriesAdWrapper": {
+            "seriesId": 10763,
+            "seriesName": "Super Smash 2025-26",
+            "matches": [
+              {
+                "matchInfo": {
+                  "matchId": 132791,
+                  "seriesId": 10763,
+                  "seriesName": "Super Smash 2025-26",
+                  "matchDesc": "6th Match",
+                  "matchFormat": "T20",
+                  "startDate": "1767151500000",
+                  "endDate": "1767164100000",
+                  "state": "In Progress",
+                  "status": "Northern Knights opt to bowl",
+                  "team1": {
+                    "teamId": 314,
+                    "teamName": "Wellington",
+                    "teamSName": "WEL",
+                    "imageId": 172364
+                  },
+                  "team2": {
+                    "teamId": 294,
+                    "teamName": "Northern Knights",
+                    "teamSName": "NK",
+                    "imageId": 172343
+                  },
+                  "venueInfo": {
+                    "id": 393,
+                    "ground": "Bay Oval",
+                    "city": "Mount Maunganui",
+                    "timezone": "+13:00",
+                    "latitude": "-37.670300",
+                    "longitude": "176.212006"
+                  },
+                  "currBatTeamId": 314,
+                  "seriesStartDt": "1766707200000",
+                  "seriesEndDt": "1769990400000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 181,
+                      "wickets": 3,
+                      "overs": 17.6
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "matchType": "Domestic",
+      "seriesMatches": [
+        {
+          "seriesAdWrapper": {
+            "seriesId": 10366,
+            "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+            "matches": [
+              {
+                "matchInfo": {
+                  "matchId": 125811,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group A",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Rajasthan opt to bat",
+                  "team1": {
+                    "teamId": 171,
+                    "teamName": "Rajasthan",
+                    "teamSName": "RAJ",
+                    "imageId": 172239
+                  },
+                  "team2": {
+                    "teamId": 244,
+                    "teamName": "Kerala",
+                    "teamSName": "KER",
+                    "imageId": 172297
+                  },
+                  "venueInfo": {
+                    "id": 1237,
+                    "ground": "Gujarat College Ground",
+                    "city": "Ahmedabad",
+                    "timezone": "+05:30",
+                    "latitude": "23.042203",
+                    "longitude": "72.564375"
+                  },
+                  "currBatTeamId": 171,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 67,
+                      "wickets": 2,
+                      "overs": 9.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125872,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group C",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Punjab opt to bowl",
+                  "team1": {
+                    "teamId": 251,
+                    "teamName": "Himachal Pradesh",
+                    "teamSName": "HP",
+                    "imageId": 172304
+                  },
+                  "team2": {
+                    "teamId": 245,
+                    "teamName": "Punjab",
+                    "teamSName": "PUN",
+                    "imageId": 172298
+                  },
+                  "venueInfo": {
+                    "id": 309,
+                    "ground": "KL Saini Ground",
+                    "city": "Jaipur",
+                    "timezone": "+05:30",
+                    "latitude": "26.894670",
+                    "longitude": "75.784180"
+                  },
+                  "currBatTeamId": 251,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 41,
+                      "wickets": 4,
+                      "overs": 10.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125828,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group B",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Bengal opt to bowl",
+                  "team1": {
+                    "teamId": 252,
+                    "teamName": "Jammu and Kashmir",
+                    "teamSName": "JK",
+                    "imageId": 172305
+                  },
+                  "team2": {
+                    "teamId": 232,
+                    "teamName": "Bengal",
+                    "teamSName": "BEN",
+                    "imageId": 172285
+                  },
+                  "venueInfo": {
+                    "id": 1748,
+                    "ground": "Sanosara Cricket Ground A",
+                    "city": "Rajkot",
+                    "timezone": "+05:30",
+                    "latitude": "22.4894023",
+                    "longitude": "68.2051849"
+                  },
+                  "currBatTeamId": 252,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 20,
+                      "wickets": 4,
+                      "overs": 10
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125894,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group D",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Andhra opt to bowl",
+                  "team1": {
+                    "teamId": 94,
+                    "teamName": "Saurashtra",
+                    "teamSName": "SAUR",
+                    "imageId": 172186
+                  },
+                  "team2": {
+                    "teamId": 241,
+                    "teamName": "Andhra",
+                    "teamSName": "AP",
+                    "imageId": 172294
+                  },
+                  "venueInfo": {
+                    "id": 1438102,
+                    "ground": "BCCI Centre of Excellence Ground 2",
+                    "city": "Bengaluru",
+                    "timezone": "+05:30",
+                    "latitude": "13.174092",
+                    "longitude": "77.706999"
+                  },
+                  "currBatTeamId": 94,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 62,
+                      "wickets": 3,
+                      "overs": 14.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125855,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group B",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Vidarbha opt to bowl",
+                  "team1": {
+                    "teamId": 595,
+                    "teamName": "Chandigarh",
+                    "teamSName": "CDG",
+                    "imageId": 244269
+                  },
+                  "team2": {
+                    "teamId": 248,
+                    "teamName": "Vidarbha",
+                    "teamSName": "VID",
+                    "imageId": 172301
+                  },
+                  "venueInfo": {
+                    "id": 861,
+                    "ground": "Niranjan Shah Stadium C",
+                    "city": "Rajkot",
+                    "timezone": "+05:30",
+                    "latitude": "22.289721",
+                    "longitude": "70.793182"
+                  },
+                  "currBatTeamId": 595,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 58,
+                      "wickets": 5,
+                      "overs": 13.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125916,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group D",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Haryana opt to bowl",
+                  "team1": {
+                    "teamId": 250,
+                    "teamName": "Services",
+                    "teamSName": "SER",
+                    "imageId": 172303
+                  },
+                  "team2": {
+                    "teamId": 200,
+                    "teamName": "Haryana",
+                    "teamSName": "HAR",
+                    "imageId": 172260
+                  },
+                  "venueInfo": {
+                    "id": 448,
+                    "ground": "KSCA Cricket Ground",
+                    "city": "Alur",
+                    "timezone": "+05:30",
+                    "latitude": "13.0891596",
+                    "longitude": "77.4474288"
+                  },
+                  "currBatTeamId": 250,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 56,
+                      "wickets": 4,
+                      "overs": 13.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125817,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group A",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Karnataka opt to bat",
+                  "team1": {
+                    "teamId": 128,
+                    "teamName": "Karnataka",
+                    "teamSName": "KAR",
+                    "imageId": 776345
+                  },
+                  "team2": {
+                    "teamId": 465,
+                    "teamName": "Puducherry",
+                    "teamSName": "PDC",
+                    "imageId": 172513
+                  },
+                  "venueInfo": {
+                    "id": 1832,
+                    "ground": "ADSA Railways Cricket Ground",
+                    "city": "Ahmedabad",
+                    "timezone": "+05:30",
+                    "latitude": "23.038014",
+                    "longitude": "72.4074523"
+                  },
+                  "currBatTeamId": 128,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 58,
+                      "overs": 10.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125877,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group C",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Goa opt to bowl",
+                  "team1": {
+                    "teamId": 95,
+                    "teamName": "Mumbai",
+                    "teamSName": "MUM",
+                    "imageId": 172187
+                  },
+                  "team2": {
+                    "teamId": 253,
+                    "teamName": "Goa",
+                    "teamSName": "GOA",
+                    "imageId": 172306
+                  },
+                  "venueInfo": {
+                    "id": 576,
+                    "ground": "Jaipuria Vidyalaya Ground",
+                    "city": "Jaipur",
+                    "timezone": "+05:30",
+                    "latitude": "26.912434",
+                    "longitude": "75.787270"
+                  },
+                  "currBatTeamId": 95,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 39,
+                      "wickets": 1,
+                      "overs": 10.2
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125839,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group B",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Hyderabad opt to bowl",
+                  "team1": {
+                    "teamId": 170,
+                    "teamName": "Baroda",
+                    "teamSName": "BRD",
+                    "imageId": 172238
+                  },
+                  "team2": {
+                    "teamId": 242,
+                    "teamName": "Hyderabad",
+                    "teamSName": "HYD",
+                    "imageId": 172295
+                  },
+                  "venueInfo": {
+                    "id": 1745,
+                    "ground": "Sanosara Cricket Ground B",
+                    "city": "Rajkot",
+                    "timezone": "+05:30",
+                    "latitude": "22.496557",
+                    "longitude": "70.4952359"
+                  },
+                  "currBatTeamId": 170,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 97,
+                      "overs": 11
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125899,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group D",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Gujarat opt to bat",
+                  "team1": {
+                    "teamId": 163,
+                    "teamName": "Gujarat",
+                    "teamSName": "GUJ",
+                    "imageId": 172232
+                  },
+                  "team2": {
+                    "teamId": 246,
+                    "teamName": "Railways",
+                    "teamSName": "RLYS",
+                    "imageId": 172299
+                  },
+                  "venueInfo": {
+                    "id": 450,
+                    "ground": "KSCA Cricket (2) Ground",
+                    "city": "Alur",
+                    "timezone": "+05:30",
+                    "latitude": "13.087556",
+                    "longitude": "77.447286"
+                  },
+                  "currBatTeamId": 163,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 53,
+                      "overs": 6.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125800,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group A",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Jharkhand opt to bowl",
+                  "team1": {
+                    "teamId": 92,
+                    "teamName": "Tamil Nadu",
+                    "teamSName": "TN",
+                    "imageId": 172184
+                  },
+                  "team2": {
+                    "teamId": 243,
+                    "teamName": "Jharkhand",
+                    "teamSName": "JHKD",
+                    "imageId": 172296
+                  },
+                  "venueInfo": {
+                    "id": 50,
+                    "ground": "Narendra Modi Stadium",
+                    "city": "Ahmedabad",
+                    "timezone": "+05:30",
+                    "latitude": "23.091785",
+                    "longitude": "72.597465"
+                  },
+                  "currBatTeamId": 92,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 14,
+                      "wickets": 1,
+                      "overs": 3.5
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125866,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group C",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Sikkim opt to bowl",
+                  "team1": {
+                    "teamId": 375,
+                    "teamName": "Chhattisgarh",
+                    "teamSName": "CG",
+                    "imageId": 172428
+                  },
+                  "team2": {
+                    "teamId": 466,
+                    "teamName": "Sikkim",
+                    "teamSName": "SKM",
+                    "imageId": 172514
+                  },
+                  "venueInfo": {
+                    "id": 76,
+                    "ground": "Sawai Mansingh Stadium",
+                    "city": "Jaipur",
+                    "timezone": "+05:30",
+                    "latitude": "26.894012",
+                    "longitude": "75.803225"
+                  },
+                  "currBatTeamId": 375,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 54,
+                      "overs": 13.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125822,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group A",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Madhya Pradesh opt to bowl",
+                  "team1": {
+                    "teamId": 247,
+                    "teamName": "Tripura",
+                    "teamSName": "TRI",
+                    "imageId": 172300
+                  },
+                  "team2": {
+                    "teamId": 167,
+                    "teamName": "Madhya Pradesh",
+                    "teamSName": "MP",
+                    "imageId": 172236
+                  },
+                  "venueInfo": {
+                    "id": 347,
+                    "ground": "Narendra Modi Stadium B Ground",
+                    "city": "Ahmedabad",
+                    "timezone": "+05:30",
+                    "latitude": "23.042203",
+                    "longitude": "72.564375"
+                  },
+                  "currBatTeamId": 247,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 62,
+                      "wickets": 2,
+                      "overs": 12.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125883,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group C",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Uttarakhand opt to bowl",
+                  "team1": {
+                    "teamId": 254,
+                    "teamName": "Maharashtra",
+                    "teamSName": "MAH",
+                    "imageId": 172307
+                  },
+                  "team2": {
+                    "teamId": 467,
+                    "teamName": "Uttarakhand",
+                    "teamSName": "UTK",
+                    "imageId": 172515
+                  },
+                  "venueInfo": {
+                    "id": 1438242,
+                    "ground": "Anantam Ground",
+                    "city": "Jaipur",
+                    "timezone": "+05:30",
+                    "latitude": "26.8559801",
+                    "longitude": "75.6872875"
+                  },
+                  "currBatTeamId": 254,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 50,
+                      "wickets": 3,
+                      "overs": 9.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125850,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group B",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Assam opt to bat",
+                  "team1": {
+                    "teamId": 162,
+                    "teamName": "Assam",
+                    "teamSName": "ASM",
+                    "imageId": 172230
+                  },
+                  "team2": {
+                    "teamId": 93,
+                    "teamName": "Uttar Pradesh",
+                    "teamSName": "UP",
+                    "imageId": 172185
+                  },
+                  "venueInfo": {
+                    "id": 290,
+                    "ground": "Niranjan Shah Stadium, Khandheri",
+                    "city": "Rajkot",
+                    "timezone": "+05:30",
+                    "latitude": "22.289721",
+                    "longitude": "70.793182"
+                  },
+                  "currBatTeamId": 162,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 77,
+                      "wickets": 2,
+                      "overs": 14.6
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125910,
+                  "seriesId": 10366,
+                  "seriesName": "Vijay Hazare Trophy Elite 2025-26",
+                  "matchDesc": "Group D",
+                  "matchFormat": "ODI",
+                  "startDate": "1767151800000",
+                  "endDate": "1767180600000",
+                  "state": "In Progress",
+                  "status": "Delhi opt to bowl",
+                  "team1": {
+                    "teamId": 249,
+                    "teamName": "Odisha",
+                    "teamSName": "ODSA",
+                    "imageId": 776395
+                  },
+                  "team2": {
+                    "teamId": 81,
+                    "teamName": "Delhi",
+                    "teamSName": "DEL",
+                    "imageId": 172175
+                  },
+                  "venueInfo": {
+                    "id": 451,
+                    "ground": "KSCA Cricket (3) Ground",
+                    "city": "Alur",
+                    "timezone": "+05:30",
+                    "latitude": "13.088734",
+                    "longitude": "77.448619"
+                  },
+                  "currBatTeamId": 249,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1768867200000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 55,
+                      "overs": 9.6
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "seriesAdWrapper": {
+            "seriesId": 10377,
+            "seriesName": "Vijay Hazare Trophy Plate 2025-26",
+            "matches": [
+              {
+                "matchInfo": {
+                  "matchId": 125366,
+                  "seriesId": 10377,
+                  "seriesName": "Vijay Hazare Trophy Plate 2025-26",
+                  "matchDesc": "Plate",
+                  "matchFormat": "ODI",
+                  "startDate": "1767150900000",
+                  "endDate": "1767179700000",
+                  "state": "In Progress",
+                  "status": "Arunachal Pradesh opt to bat",
+                  "team1": {
+                    "teamId": 468,
+                    "teamName": "Arunachal Pradesh",
+                    "teamSName": "ARNP",
+                    "imageId": 172516
+                  },
+                  "team2": {
+                    "teamId": 462,
+                    "teamName": "Meghalaya",
+                    "teamSName": "MGLY",
+                    "imageId": 172510
+                  },
+                  "venueInfo": {
+                    "id": 1438239,
+                    "ground": "Usha Martin Ground",
+                    "city": "Ranchi",
+                    "timezone": "+05:30",
+                    "latitude": "23.4068115",
+                    "longitude": "85.506382"
+                  },
+                  "currBatTeamId": 468,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1767830400000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 66,
+                      "wickets": 1,
+                      "overs": 21
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125344,
+                  "seriesId": 10377,
+                  "seriesName": "Vijay Hazare Trophy Plate 2025-26",
+                  "matchDesc": "Plate",
+                  "matchFormat": "ODI",
+                  "startDate": "1767150900000",
+                  "endDate": "1767179700000",
+                  "state": "In Progress",
+                  "status": "Manipur opt to bowl",
+                  "team1": {
+                    "teamId": 463,
+                    "teamName": "Mizoram",
+                    "teamSName": "MIZ",
+                    "imageId": 776489
+                  },
+                  "team2": {
+                    "teamId": 461,
+                    "teamName": "Manipur",
+                    "teamSName": "MNP",
+                    "imageId": 172509
+                  },
+                  "venueInfo": {
+                    "id": 291,
+                    "ground": "JSCA International Stadium Complex",
+                    "city": "Ranchi",
+                    "timezone": "+05:30",
+                    "latitude": "23.310158",
+                    "longitude": "85.274824"
+                  },
+                  "currBatTeamId": 463,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1767830400000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 22,
+                      "wickets": 1,
+                      "overs": 5
+                    }
+                  }
+                }
+              },
+              {
+                "matchInfo": {
+                  "matchId": 125355,
+                  "seriesId": 10377,
+                  "seriesName": "Vijay Hazare Trophy Plate 2025-26",
+                  "matchDesc": "Plate",
+                  "matchFormat": "ODI",
+                  "startDate": "1767150900000",
+                  "endDate": "1767179700000",
+                  "state": "In Progress",
+                  "status": "Nagaland opt to bat",
+                  "team1": {
+                    "teamId": 464,
+                    "teamName": "Nagaland",
+                    "teamSName": "NGL",
+                    "imageId": 776394
+                  },
+                  "team2": {
+                    "teamId": 460,
+                    "teamName": "Bihar",
+                    "teamSName": "BIH",
+                    "imageId": 172508
+                  },
+                  "venueInfo": {
+                    "id": 841,
+                    "ground": "JSCA Oval Ground",
+                    "city": "Ranchi",
+                    "timezone": "+05:30",
+                    "latitude": "23.310158",
+                    "longitude": "85.274824"
+                  },
+                  "currBatTeamId": 464,
+                  "seriesStartDt": "1766534400000",
+                  "seriesEndDt": "1767830400000",
+                  "isTimeAnnounced": true,
+                  "stateTitle": "In Progress"
+                },
+                "matchScore": {
+                  "team1Score": {
+                    "inngs1": {
+                      "inningsId": 1,
+                      "runs": 8,
+                      "wickets": 1,
+                      "overs": 5
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "filters": {
+    "matchType": [
+      "International",
+      "League",
+      "Domestic",
+      "Women"
+    ]
+  },
+  "responseLastUpdated": "1767156639"
+}
