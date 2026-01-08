@@ -19,7 +19,7 @@ export const home = async (req, res) => {
 export const matchInfo = async (req, res) => {
   try {
     const { matchId } = req.params;
-
+    
     const response = await cricketApiRequest.getMatchInfo(matchId)
 
     res.json({ success: true, data: response.data });
