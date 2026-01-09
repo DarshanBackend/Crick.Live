@@ -1,15 +1,59 @@
 import express from 'express';
-import { sendOTP, verifyOTP, updateProfile } from '../controllers/auth.controller.js';
-import { UserAuth } from '../middleware/auth.middleware.js';
+import { sendOTP, verifyOTP, updateProfile, assignAdminRole, removeAdminRole, registerAdmin } from '../controllers/auth.controller.js';
+import { UserAuth, AdminAuth } from '../middleware/auth.middleware.js';
 import { upload, listBucketObjects, deleteFromS3, deleteManyFromS3 } from '../middleware/imageupload.js';
 import { sendResponse, sendSuccessResponse, sendErrorResponse, sendBadRequestResponse } from '../utils/Response.utils.js';
+import { createFaqCategory, deleteFaqCategoryById, getAllFaqCategory, getFaqCategoryById, updateFaqCategoryById } from '../controllers/faqCategory.controller.js';
+import { createFaqQuestion, deleteFaqQuestion, getAllFaqQuestions, getFaqQuestionById, getFaqQuestionsByCategory, updateFaqQuestion } from '../controllers/faqQuestion.controller.js';
+import { createAboutUsCategory, deleteAboutUsCategoryById, getAboutUsCategoryById, getAllAboutUsCategory, updateAboutUsCategoryById } from '../controllers/aboutUsCategory.controller.js';
+import { createAboutUsQuestion, deleteAboutUsQuestion, getAboutUsQuestionById, getAboutUsQuestionsByCategory, getAllAboutUsQuestions, updateAboutUsQuestion } from '../controllers/aboutUsQuestion.controller.js';
+import { createPremium, deletePremiumById, getAllPremium, getPremiumById, togglePremiumStatus, updatePremiumById } from '../controllers/premium.controller.js';
 
 const indexRoutes = express.Router();
 
 indexRoutes.post('/sendOtp', sendOTP);
 indexRoutes.post('/verifyOtp', verifyOTP);
+indexRoutes.post('/registerAdmin', registerAdmin);
 indexRoutes.put('/updateProfile', UserAuth, upload.single('profileImage'), updateProfile);
+indexRoutes.post('/assignAdminRole', AdminAuth, assignAdminRole);
+indexRoutes.post('/removeAdminRole', AdminAuth, removeAdminRole);
 
+indexRoutes.post("/createFaqCategory", AdminAuth, upload.single("faqCategoryImage"), createFaqCategory)
+indexRoutes.get("/getAllFaqCategory", getAllFaqCategory)
+indexRoutes.get("/getFaqCategoryById/:id", getFaqCategoryById)
+indexRoutes.patch("/updateFaqCategoryById/:id", AdminAuth, upload.single("faqCategoryImage"), updateFaqCategoryById)
+indexRoutes.delete("/deleteFaqCategoryById/:id", AdminAuth, deleteFaqCategoryById)
+
+//faqQuestion route
+indexRoutes.post("/createFaqQuestion", AdminAuth, createFaqQuestion);
+indexRoutes.get("/getAllFaqQuestions", getAllFaqQuestions);
+indexRoutes.get("/getFaqQuestionById/:id", getFaqQuestionById);
+indexRoutes.patch("/updateFaqQuestion/:id", AdminAuth, updateFaqQuestion);
+indexRoutes.delete("/deleteFaqQuestion/:id", AdminAuth, deleteFaqQuestion);
+indexRoutes.get("/getFaqQuestionsByCategory/:categoryId", getFaqQuestionsByCategory);
+
+//faqQuestion route
+indexRoutes.post("/createAboutUsCategory", AdminAuth, createAboutUsCategory);
+indexRoutes.get("/getAllAboutUsCategory", getAllAboutUsCategory);
+indexRoutes.get("/getAboutUsCategoryById/:id", getAboutUsCategoryById);
+indexRoutes.patch("/updateAboutUsCategoryById/:id", AdminAuth, updateAboutUsCategoryById);
+indexRoutes.delete("/deleteAboutUsCategoryById/:id", AdminAuth, deleteAboutUsCategoryById);
+
+//faqQuestion route
+indexRoutes.post("/createAboutUsQuestion", AdminAuth, createAboutUsQuestion);
+indexRoutes.get("/getAllAboutUsQuestions", getAllAboutUsQuestions);
+indexRoutes.get("/getAboutUsQuestionById/:id", getAboutUsQuestionById);
+indexRoutes.patch("/updateAboutUsQuestion/:id", AdminAuth, updateAboutUsQuestion);
+indexRoutes.delete("/deleteAboutUsQuestion/:id", AdminAuth, deleteAboutUsQuestion);
+indexRoutes.get("/getAboutUsQuestionsByCategory/:categoryId", getAboutUsQuestionsByCategory);
+
+//Premium routes
+indexRoutes.post("/createPremium", AdminAuth, createPremium);
+indexRoutes.get("/getAllPremium", getAllPremium);
+indexRoutes.get("/getPremiumById/:id", getPremiumById);
+indexRoutes.patch("/updatePremiumById/:id", AdminAuth, updatePremiumById);
+indexRoutes.delete("/deletePremiumById/:id", AdminAuth, deletePremiumById);
+indexRoutes.patch("/togglePremiumStatus/:id", AdminAuth, togglePremiumStatus);
 
 //aws
 indexRoutes.get("/list", async (req, res) => {

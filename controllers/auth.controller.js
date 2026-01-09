@@ -3,10 +3,13 @@ import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import twilio from 'twilio';
 import { uploadFile, deleteFileFromS3 } from "../middleware/imageupload.js";
+import mongoose from "mongoose";
+import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from "../utils/Response.utils.js";
 
 dotenv.config({ path: '.env' });
 
 const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret";
+const ADMIN_SECRET_KEY = process.env.ADMIN_SECRET_KEY || "admin_secret_key_2024";
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const verifyServiceSid = process.env.TWILIO_VERIFY_SID;
@@ -237,10 +240,13 @@ export const verifyOTP = async (req, res) => {
                 token,
                 user: {
                     _id: user._id,
+                    uid: user.uid,
                     mobileNo: user.mobileNo,
                     name: user.name,
                     profileImage: user.profileImage,
-                    isVerified: user.isVerified
+                    isVerified: user.isVerified,
+                    role: user.role,
+                    isAdmin: user.isAdmin
                 }
             }
         });
@@ -289,11 +295,165 @@ export const updateProfile = async (req, res) => {
             result: {
                 user: {
                     _id: user._id,
+                    uid: user.uid,
                     mobileNo: user.mobileNo,
                     name: user.name,
                     profileImage: user.profileImage,
-                    isVerified: user.isVerified
+                    isVerified: user.isVerified,
+                    role: user.role,
+                    isAdmin: user.isAdmin
                 }
+            }
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Server error",
+            error: error.message
+        });
+    }
+};
+ 
+export const assignAdminRole = async (req, res) => {
+    try {
+        const { userId } = req.body;
+
+        if (!userId) {
+            return sendBadRequestResponse(res, "UserId is required");
+        }
+
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return sendBadRequestResponse(res, "Invalid UserId");
+        }
+
+        const user = await User.findById(userId);
+        if (!user) {
+            return sendNotFoundResponse(res, "User not found");
+        }
+
+        if (user.role === "admin") {
+            return sendBadRequestResponse(res, "User is already an admin");
+        }
+
+        user.role = "admin";
+        user.isAdmin = true;
+        await user.save();
+
+        return sendSuccessResponse(res, "Admin role assigned successfully", {
+            user: {
+                _id: user._id,
+                uid: user.uid,
+                mobileNo: user.mobileNo,
+                name: user.name,
+                role: user.role,
+                isAdmin: user.isAdmin
+            }
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Server error",
+            error: error.message
+        });
+    }
+};
+
+export const removeAdminRole = async (req, res) => {
+    try {
+        const { userId } = req.body;
+
+        if (!userId) {
+            return sendBadRequestResponse(res, "UserId is required");
+        }
+
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return sendBadRequestResponse(res, "Invalid UserId");
+        }
+
+        const user = await User.findById(userId);
+        if (!user) {
+            return sendNotFoundResponse(res, "User not found");
+        }
+
+        if (user.role !== "admin") {
+            return sendBadRequestResponse(res, "User is not an admin");
+        }
+
+        user.role = "user";
+        user.isAdmin = false;
+        await user.save();
+
+        return sendSuccessResponse(res, "Admin role removed successfully", {
+            user: {
+                _id: user._id,
+                uid: user.uid,
+                mobileNo: user.mobileNo,
+                name: user.name,
+                role: user.role,
+                isAdmin: user.isAdmin
+            }
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Server error",
+            error: error.message
+        });
+    }
+};
+
+export const registerAdmin = async (req, res) => {
+    try {
+        const { mobileNo } = req.body;
+
+        if (!mobileNo) {
+            return sendBadRequestResponse(res, "Mobile number is required");
+        }
+
+        const cleanMobileNo = mobileNo.replace(/\D/g, '').slice(-10);
+
+        if (cleanMobileNo.length !== 10) {
+            return sendBadRequestResponse(res, "Valid 10-digit mobile number required");
+        }
+
+        let user = await User.findOne({ mobileNo: cleanMobileNo });
+
+        if (!user) {
+            user = await User.create({
+                mobileNo: cleanMobileNo,
+                isVerified: true,
+                role: "admin",
+                isAdmin: true,
+                name: "Admin",
+                profileImage: defaultUserImage
+            });
+        } else {
+            user.isVerified = true;
+            user.role = "admin";
+            user.isAdmin = true;
+            await user.save();
+        }
+
+        const token = jwt.sign(
+            { _id: user._id, mobileNo: user.mobileNo },
+            JWT_SECRET,
+            { expiresIn: '7d' }
+        );
+
+        return sendSuccessResponse(res, "Admin registered successfully", {
+            token,
+            user: {
+                _id: user._id,
+                uid: user.uid,
+                mobileNo: user.mobileNo,
+                name: user.name,
+                profileImage: user.profileImage,
+                isVerified: user.isVerified,
+                role: user.role,
+                isAdmin: user.isAdmin
             }
         });
 

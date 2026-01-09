@@ -47,7 +47,7 @@ try {
 export const upload = multer({
     storage: multer.memoryStorage(),
     fileFilter: (req, file, cb) => {
-        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
+        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif','image/svg+xml'];
         if (allowedTypes.includes(file.mimetype)) {
             cb(null, true);
         } else {
