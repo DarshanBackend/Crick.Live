@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import twilio from 'twilio';
 import { uploadFile, deleteFileFromS3 } from "../middleware/imageupload.js";
 import mongoose from "mongoose";
-import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from "../utils/Response.utils.js";
+import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from "../utils/response.utils.js";
 
 dotenv.config({ path: '.env' });
 

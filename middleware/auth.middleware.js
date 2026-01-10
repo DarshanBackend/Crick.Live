@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
-import { sendUnauthorizedResponse } from "../utils/Response.utils.js";
+import { sendUnauthorizedResponse } from "../utils/response.utils.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 

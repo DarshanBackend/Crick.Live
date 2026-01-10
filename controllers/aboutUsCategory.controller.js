@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import aboutUsCategoryModel from "../models/aboutUsCategory.model.js";
-import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from "../utils/Response.utils.js";
+import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from "../utils/response.utils.js";
 import { ThrowError } from "../utils/Error.utils.js";
 
 export const createAboutUsCategory = async (req, res) => {

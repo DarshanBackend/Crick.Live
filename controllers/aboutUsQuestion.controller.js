@@ -1,7 +1,7 @@
 import AboutUsQuestion from '../models/aboutUsQuestion.model.js';
 import AboutUsCategory from '../models/aboutUsCategory.model.js';
 import mongoose from 'mongoose';
-import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from '../utils/Response.utils.js';
+import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from '../utils/response.utils.js';
 import { ThrowError } from '../utils/Error.utils.js';
 
 export const createAboutUsQuestion = async (req, res) => {

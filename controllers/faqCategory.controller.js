@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import faqCategoryModel from "../models/faqCategory.model.js";
-import { sendBadRequestResponse, sendErrorResponse, sendNotFoundResponse, sendSuccessResponse } from "../utils/Response.utils.js";
+import { sendBadRequestResponse, sendErrorResponse, sendNotFoundResponse, sendSuccessResponse } from "../utils/response.utils.js";
 import { ThrowError } from "../utils/Error.utils.js";
 import { uploadFile, deleteFileFromS3 } from "../middleware/imageupload.js";
 

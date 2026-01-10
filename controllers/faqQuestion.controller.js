@@ -1,7 +1,7 @@
 import FAQQuestion from '../models/faqQuestion.model.js';
 import FAQCategory from '../models/faqCategory.model.js';
 import mongoose from 'mongoose';
-import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from '../utils/Response.utils.js';
+import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse } from '../utils/response.utils.js';
 import { ThrowError } from '../utils/Error.utils.js';
 
 export const createFaqQuestion = async (req, res) => {

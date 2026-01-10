@@ -2,7 +2,7 @@ import express from 'express';
 import { sendOTP, verifyOTP, updateProfile, assignAdminRole, removeAdminRole, registerAdmin } from '../controllers/auth.controller.js';
 import { UserAuth, AdminAuth } from '../middleware/auth.middleware.js';
 import { upload, listBucketObjects, deleteFromS3, deleteManyFromS3 } from '../middleware/imageupload.js';
-import { sendResponse, sendSuccessResponse, sendErrorResponse, sendBadRequestResponse } from '../utils/Response.utils.js';
+import { sendResponse, sendSuccessResponse, sendErrorResponse, sendBadRequestResponse } from '../utils/response.utils.js';
 import { createFaqCategory, deleteFaqCategoryById, getAllFaqCategory, getFaqCategoryById, updateFaqCategoryById } from '../controllers/faqCategory.controller.js';
 import { createFaqQuestion, deleteFaqQuestion, getAllFaqQuestions, getFaqQuestionById, getFaqQuestionsByCategory, updateFaqQuestion } from '../controllers/faqQuestion.controller.js';
 import { createAboutUsCategory, deleteAboutUsCategoryById, getAboutUsCategoryById, getAllAboutUsCategory, updateAboutUsCategoryById } from '../controllers/aboutUsCategory.controller.js';

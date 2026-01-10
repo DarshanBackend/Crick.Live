@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import authRoutes from "./routes/auth.routes.js";
 import cricketRoutes from "./routes/cricket.routes.js";
+import couponRoutes from "./routes/coupon.routes.js";
 
 dotenv.config({ path: '.env' });
 
@@ -26,6 +27,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use("/api/v1", cricketRoutes);
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/coupon", couponRoutes);
 
 app.use((req, res) => {
     res.status(404).json({
@@ -35,11 +37,14 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
+    if (res.headersSent) {
+        return next(err);
+    }
     console.error("Server error:", err);
-    res.status(500).json({
+    res.status(err.status || err.statusCode || 500).json({
         success: false,
-        message: "Internal server error",
-        error: process.env.NODE_ENV === 'development' ? err.message : undefined
+        message: err.message || "Internal server error",
+        error: process.env.NODE_ENV === 'development' ? err.stack : undefined
     });
 });
 
