@@ -1,5 +1,5 @@
 import express from 'express';
-import { sendOTP, verifyOTP, updateProfile, assignAdminRole, removeAdminRole, registerAdmin } from '../controllers/auth.controller.js';
+import { sendOTP, verifyOTP, updateProfile, assignAdminRole, removeAdminRole, registerAdmin, deleteAccount } from '../controllers/auth.controller.js';
 import { UserAuth, AdminAuth } from '../middleware/auth.middleware.js';
 import { upload, listBucketObjects, deleteFromS3, deleteManyFromS3 } from '../middleware/imageupload.js';
 import { sendResponse, sendSuccessResponse, sendErrorResponse, sendBadRequestResponse } from '../utils/response.utils.js';
@@ -17,6 +17,7 @@ indexRoutes.post('/registerAdmin', registerAdmin);
 indexRoutes.put('/updateProfile', UserAuth, upload.single('profileImage'), updateProfile);
 indexRoutes.post('/assignAdminRole', AdminAuth, assignAdminRole);
 indexRoutes.post('/removeAdminRole', AdminAuth, removeAdminRole);
+indexRoutes.delete('/deleteAccount', UserAuth, deleteAccount);
 
 indexRoutes.post("/createFaqCategory", AdminAuth, upload.single("faqCategoryImage"), createFaqCategory)
 indexRoutes.get("/getAllFaqCategory", getAllFaqCategory)

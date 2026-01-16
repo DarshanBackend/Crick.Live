@@ -4,19 +4,6 @@ import { ThrowError } from "../utils/Error.utils.js";
 import { sendBadRequestResponse, sendNotFoundResponse, sendSuccessResponse, sendErrorResponse, sendUnauthorizedResponse } from "../utils/response.utils.js";
 import { deleteFileFromS3, uploadFile } from "../middleware/imageupload.js";
 
-let cartModel = null;
-
-const loadCartModel = async () => {
-  if (cartModel) return cartModel;
-  try {
-    const cartModule = await import("../models/cart.model.js");
-    cartModel = cartModule.default;
-    return cartModel;
-  } catch (error) {
-    return null;
-  }
-};
-
 export const createCoupon = async (req, res) => {
   try {
     const {
@@ -47,7 +34,7 @@ export const createCoupon = async (req, res) => {
     }
 
     const trimmedCode = code.trim().toUpperCase();
-    
+
     if (!/^[A-Z0-9-]+$/.test(trimmedCode)) {
       return sendBadRequestResponse(res, "Coupon code must contain only uppercase letters, numbers, and hyphens");
     }
@@ -93,7 +80,7 @@ export const createCoupon = async (req, res) => {
 
     const separator = expiryDate.includes('/') ? '/' : '-';
     const [day, month, year] = expiryDate.split(separator).map(Number);
-    
+
     if (isNaN(day) || isNaN(month) || isNaN(year) || day < 1 || day > 31 || month < 1 || month > 12 || year < 1900) {
       return sendBadRequestResponse(res, "Invalid date values. Please provide a valid date");
     }
@@ -126,12 +113,12 @@ export const createCoupon = async (req, res) => {
     return sendSuccessResponse(res, "Coupon created successfully", newCoupon);
   } catch (error) {
     console.error("Create coupon error:", error);
-    
+
     if (error.name === 'ValidationError') {
       const messages = Object.values(error.errors).map(err => err.message).join(', ');
       return sendBadRequestResponse(res, `Validation error: ${messages}`);
     }
-    
+
     if (error.code === 11000) {
       return sendBadRequestResponse(res, "Coupon code already exists");
     }
@@ -143,7 +130,7 @@ export const createCoupon = async (req, res) => {
 export const getAllCoupon = async (req, res) => {
   try {
     const { planName } = req.query;
-    
+
     const query = {
       isActive: true,
       expiryDate: { $gt: new Date() }
@@ -232,7 +219,7 @@ export const updateCoupon = async (req, res) => {
 
     if (code) {
       const trimmedCode = code.trim().toUpperCase();
-      
+
       if (!/^[A-Z0-9-]+$/.test(trimmedCode)) {
         return sendBadRequestResponse(res, "Coupon code must contain only uppercase letters, numbers, and hyphens");
       }
@@ -345,7 +332,7 @@ export const updateCoupon = async (req, res) => {
 
       const separator = updates.expiryDate.includes('/') ? '/' : '-';
       const [day, month, year] = updates.expiryDate.split(separator).map(Number);
-      
+
       if (isNaN(day) || isNaN(month) || isNaN(year) || day < 1 || day > 31 || month < 1 || month > 12 || year < 1900) {
         return sendBadRequestResponse(res, "Invalid date values. Please provide a valid date");
       }
@@ -368,7 +355,7 @@ export const updateCoupon = async (req, res) => {
       }
       updates.code = trimmedCode;
     }
-    
+
     if (updates.description) {
       updates.description = updates.description.trim();
     }
@@ -422,242 +409,6 @@ export const deleteCoupon = async (req, res) => {
   } catch (error) {
     console.error("Error deleting coupon:", error);
     return ThrowError(res, 500, error.message);
-  }
-};
-
-export const applyCouponController = async (req, res) => {
-  try {
-    const CartModel = await loadCartModel();
-    if (!CartModel) {
-      return sendErrorResponse(res, 501, "Cart functionality not available", "Cart model is not implemented. Please create models/cart.model.js");
-    }
-
-    if (!req.user) {
-      return sendUnauthorizedResponse(res, "Authentication required");
-    }
-
-    const { code, planName } = req.body;
-    const userId = req.user._id || req.user.id;
-
-    if (!code) {
-      return sendBadRequestResponse(res, "Coupon code is required");
-    }
-
-    const cart = await CartModel.findOne({ userId })
-      .populate({
-        path: "items.productId",
-        model: "Product",
-        select: "productName title description isActive productDetails shippingReturn rating brand mainCategory category subCategory",
-        populate: [
-          {
-            path: "brand",
-            model: "Brand",
-            select: "brandName brandImage",
-          },
-          {
-            path: "mainCategory",
-            model: "MainCategory",
-            select: "mainCategoryName mainCategoryImage",
-          },
-          {
-            path: "category",
-            model: "Category",
-            select: "categoryName categoryImage",
-          },
-          {
-            path: "subCategory",
-            model: "SubCategory",
-            select: "subCategoryName subCategoryImage",
-          },
-        ],
-      })
-      .populate({
-        path: "items.productVarientId",
-        model: "ProductVariant",
-        select: "variantTitle color images sku Artical_Number moreDetails brandIdentifying product_highlight weight sizeGuideId Occasion Outer_material Type_For_Casual Heel_Height",
-      });
-
-    if (!cart) {
-      return sendNotFoundResponse(res, "Cart not found");
-    }
-
-    if (cart.items.length === 0) {
-      return sendBadRequestResponse(res, "Cart is empty. Add products to apply coupon.");
-    }
-
-    let cartTotal = 0;
-    cart.items.forEach((item) => {
-      const variant = item.productVarientId;
-
-      if (variant?.color?.sizes && variant.color.sizes.length > 0 && item.selectedSize) {
-        const selectedSizeObj = variant.color.sizes.find(size => size.sizeValue === item.selectedSize);
-        if (selectedSizeObj) {
-          const effectivePrice = selectedSizeObj.discountedPrice && selectedSizeObj.discountedPrice > 0 ? selectedSizeObj.discountedPrice : selectedSizeObj.price;
-          cartTotal += effectivePrice * item.quantity;
-        }
-      } else if (variant?.color) {
-        const effectivePrice = variant.color.discountedPrice && variant.color.discountedPrice > 0 ? variant.color.discountedPrice : variant.color.price;
-        cartTotal += effectivePrice * item.quantity;
-      }
-    });
-
-    const coupon = await CouponModel.findOne({
-      code: code.toUpperCase(),
-      isActive: true
-    });
-
-    if (!coupon) {
-      return sendNotFoundResponse(res, "Invalid or inactive coupon");
-    }
-
-    if (coupon.expiryDate < new Date()) {
-      return sendBadRequestResponse(res, "Coupon has expired");
-    }
-
-    if (coupon.planName) {
-      if (!planName) {
-        return sendBadRequestResponse(res, `This coupon is only valid for ${coupon.planName} plan. Please specify plan name.`);
-      }
-      if (coupon.planName !== planName.trim()) {
-        return sendBadRequestResponse(res, `This coupon is only valid for ${coupon.planName} plan. You selected ${planName.trim()} plan.`);
-      }
-    }
-
-    let discount = 0;
-    let finalAmount = cartTotal;
-
-    if (coupon.discountType === "percentage") {
-      discount = (cartTotal * coupon.percentageValue) / 100;
-    } else if (coupon.discountType === "flat") {
-      discount = coupon.flatValue;
-    }
-
-    if (discount > cartTotal) {
-      discount = cartTotal;
-    }
-
-    finalAmount = cartTotal - discount;
-
-    cart.appliedCoupon = {
-      code: coupon.code,
-      couponId: coupon._id,
-      discount: discount,
-      discountType: coupon.discountType,
-      percentageValue: coupon.percentageValue,
-      flatValue: coupon.flatValue,
-      planName: coupon.planName || null,
-      originalAmount: cartTotal,
-      finalAmount: finalAmount
-    };
-
-    await cart.save();
-
-    return sendSuccessResponse(res, "Coupon applied successfully", {
-      cartId: cart._id,
-      items: cart.items,
-      appliedCoupon: cart.appliedCoupon,
-      originalAmount: cartTotal,
-      discount,
-      finalAmount,
-      discountType: coupon.discountType,
-      percentageValue: coupon.percentageValue,
-      flatValue: coupon.flatValue,
-      planName: coupon.planName || null,
-      expiryDate: coupon.expiryDate,
-      orderInstruction: cart.orderInstruction,
-      isGiftWrap: cart.isGiftWrap
-    });
-
-  } catch (error) {
-    console.error("applyCouponController error:", error);
-    return sendErrorResponse(res, 500, "Error applying coupon", error.message);
-  }
-};
-
-export const removeCouponController = async (req, res) => {
-  try {
-    const CartModel = await loadCartModel();
-    if (!CartModel) {
-      return sendErrorResponse(res, 501, "Cart functionality not available", "Cart model is not implemented. Please create models/cart.model.js");
-    }
-
-    if (!req.user) {
-      return sendUnauthorizedResponse(res, "Authentication required");
-    }
-
-    const userId = req.user._id || req.user.id;
-
-    const cart = await CartModel.findOne({ userId })
-      .populate({
-        path: "items.productId",
-        model: "Product",
-        select: "productName title description isActive productDetails shippingReturn rating brand mainCategory category subCategory",
-        populate: [
-          {
-            path: "brand",
-            model: "Brand",
-            select: "brandName brandImage",
-          },
-          {
-            path: "mainCategory",
-            model: "MainCategory",
-            select: "mainCategoryName mainCategoryImage",
-          },
-          {
-            path: "category",
-            model: "Category",
-            select: "categoryName categoryImage",
-          },
-          {
-            path: "subCategory",
-            model: "SubCategory",
-            select: "subCategoryName subCategoryImage",
-          },
-        ],
-      })
-      .populate({
-        path: "items.productVarientId",
-        model: "ProductVariant",
-        select: "variantTitle color images sku Artical_Number moreDetails brandIdentifying product_highlight weight sizeGuideId Occasion Outer_material Type_For_Casual Heel_Height",
-      });
-    if (!cart) {
-      return sendNotFoundResponse(res, "Cart not found");
-    }
-
-    let cartTotal = 0;
-    cart.items.forEach((item) => {
-      const variant = item.productVarientId;
-
-      if (variant?.color?.sizes && variant.color.sizes.length > 0 && item.selectedSize) {
-        const selectedSizeObj = variant.color.sizes.find(size => size.sizeValue === item.selectedSize);
-        if (selectedSizeObj) {
-          const effectivePrice = selectedSizeObj.discountedPrice && selectedSizeObj.discountedPrice > 0 ? selectedSizeObj.discountedPrice : selectedSizeObj.price;
-          cartTotal += effectivePrice * item.quantity;
-        }
-      } else if (variant?.color) {
-        const effectivePrice = variant.color.discountedPrice && variant.color.discountedPrice > 0 ? variant.color.discountedPrice : variant.color.price;
-        cartTotal += effectivePrice * item.quantity;
-      }
-    });
-
-    const removedCoupon = cart.appliedCoupon;
-    cart.appliedCoupon = undefined;
-    await cart.save();
-
-    return sendSuccessResponse(res, "Coupon removed successfully", {
-      cartId: cart._id,
-      items: cart.items,
-      originalAmount: cartTotal,
-      finalAmount: cartTotal,
-      discount: 0,
-      removedCoupon: removedCoupon,
-      orderInstruction: cart.orderInstruction,
-      isGiftWrap: cart.isGiftWrap
-    });
-
-  } catch (error) {
-    console.error("removeCouponController error:", error);
-    return sendErrorResponse(res, 500, "Error removing coupon", error.message);
   }
 };
 
@@ -730,7 +481,7 @@ export const applyCouponForPlan = async (req, res) => {
         code: coupon.code,
         couponId: coupon._id,
         description: coupon.description,
-      description2,
+        description2: coupon.description2,
         discountType: coupon.discountType,
         percentageValue: coupon.percentageValue,
         flatValue: coupon.flatValue,

@@ -314,7 +314,7 @@ export const updateProfile = async (req, res) => {
         });
     }
 };
- 
+
 export const assignAdminRole = async (req, res) => {
     try {
         const { userId } = req.body;
@@ -425,7 +425,7 @@ export const registerAdmin = async (req, res) => {
             user = await User.create({
                 mobileNo: cleanMobileNo,
                 isVerified: true,
-                role: "admin",
+                role: "admin",  
                 isAdmin: true,
                 name: "Admin",
                 profileImage: defaultUserImage
@@ -465,3 +465,18 @@ export const registerAdmin = async (req, res) => {
         });
     }
 };
+
+export const deleteAccount = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const user = await User.findById(userId);
+        if (!user) {
+            return sendNotFoundResponse(res, "User not found");
+        }
+
+        await user.deleteOne();
+        return sendSuccessResponse(res, "Account deleted successfully");
+    } catch (error) {
+        return sendErrorResponse(res, 500, "Server error", error.message);
+    }
+}

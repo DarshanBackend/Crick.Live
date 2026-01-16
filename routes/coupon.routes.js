@@ -6,8 +6,6 @@ import {
   getCouponById,
   updateCoupon,
   deleteCoupon,
-  applyCouponController,
-  removeCouponController,
   applyCouponForPlan
 } from "../controllers/coupon.controller.js";
 import { AdminAuth, UserAuth } from "../middleware/auth.middleware.js";
@@ -39,9 +37,7 @@ const uploadMiddleware = (fieldName) => {
 router.get("/getAllCoupon", getAllCoupon);
 router.get("/getCouponById/:id", getCouponById);
 
-router.post("/apply", UserAuth, applyCouponController);
 router.post("/apply-plan", UserAuth, applyCouponForPlan);
-router.post("/remove", UserAuth, removeCouponController);
 
 router.post("/createCoupon", AdminAuth, uploadMiddleware("couponImage"), createCoupon);
 router.get("/admin/getAllCoupon", AdminAuth, getAllCouponAdmin);
